@@ -2,3 +2,41 @@
 .topblock{
     background: #DDD;
 }
+/* 画面幅が480px以下（一般的なスマホ）の場合 */
+/* 画面幅が480px以下（一般的なスマホ）の場合 */
+@media screen and (max-width: 480px) {
+    /* htmlとbodyの元々の隙間を完全にゼロにする */
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* 1. 左右の余白を完全に無くして画面一杯にする */
+    .block {
+        margin: 0px !important; /* 左右の隙間を 0 に */
+        width: 100% !important; /* 横幅を画面ぴったりに */
+        box-sizing: border-box; /* paddingが含まれてもはみ出さないようにする */
+        padding: 5% 7%;         /* 中身の文字や画像のための内側の余白 */
+    }
+
+    /* 以下は既存のコードのままでOK */
+    h1 {
+        font-size: 24px;
+    }
+    .menublock {
+        height: auto;
+        min-height: 50px;
+        padding: 10px 15px;
+    }
+    .date {
+        width: 90px;
+        font-size: 14px;
+    }
+    iframe {
+        width: 100%; /* iframeも画面幅に合わせると綺麗です */
+        height: 800px;
+    }
+    .pagebtn p {
+        font-size :11px;
+    }
+}

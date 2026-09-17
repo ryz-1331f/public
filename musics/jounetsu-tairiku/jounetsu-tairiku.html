@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <meta charset="UTF-8">
-        <title>情熱大陸 - TAB譜ダウンロード</title>
-        <link name="viewport" content="width=device-width , initial-scale=1.0">
-        <link rel="stylesheet" href="../../assets/css/base.css">
+        <title>情熱大陸 - TAB譜</title>
+        <link rel="stylesheet" href="../../assets/css/telac-observing-log-base.css">
         <link rel="stylesheet" href="../../assets/css/home.css">
-        <link rel="stylesheet" href="../../assets/css/monotone.css">
+        <link rel="stylesheet" href="../../assets/css/base.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-            .tab{
-                width:700px;
+            .tab {
+                width: 100%;       /* 元の700px指定を100%（またはmax-width）に変更 */
+                max-width: 700px;  /* 画面が広いときは最大700pxで止める */
+                height: auto;      /* 縦横比を崩さずに縮小させる */
             }
-            table , th , td{
-                border-width:1px;
+            table, th, td {
+                border-width: 1px;
                 border-style: solid;
+            }
+            .topblock{
+                background: #DDD;
             }
         </style>
     </head>
@@ -25,14 +30,13 @@
             <img class="tab" src="./jounetsu-tairiku-tab-note.png">
         </div>
         <div class="bottomblock block">
-            <h5>credits</h5>
             <table>
                 <tr>
                     <th>Credits</th>
                 </tr>
                 <tr>
                     <th>企画・監修</th>
-                    <th>重松 陵太</th>
+                    <th>重松</th>
                 </tr>
                 <tr>
                     <th>MIDI化</th>
@@ -53,7 +57,7 @@
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
-}
+            }
         </script>
     </body>
 </html>
