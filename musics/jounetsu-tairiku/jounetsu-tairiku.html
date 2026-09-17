@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>情熱大陸 - TAB譜ダウンロード</title>
+        <link name="viewport" content="width=device-width , initial-scale=1.0">
+        <link rel="stylesheet" href="../../assets/css/base.css">
+        <link rel="stylesheet" href="../../assets/css/home.css">
+        <link rel="stylesheet" href="../../assets/css/monotone.css">
+        <style>
+            .tab{
+                width:700px;
+            }
+            table , th , td{
+                border-width:1px;
+                border-style: solid;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="topblock block">
+            <h1>情熱大陸 - TAB譜</h1>
+        </div>
+        <div class="mainblock block">
+            <img class="tab" src="./jounetsu-tairiku-tab-note.png">
+        </div>
+        <div class="bottomblock block">
+            <h5>credits</h5>
+            <table>
+                <tr>
+                    <th>Credits</th>
+                </tr>
+                <tr>
+                    <th>企画・監修</th>
+                    <th>重松 陵太</th>
+                </tr>
+                <tr>
+                    <th>MIDI化</th>
+                    <th>龍三</th>
+                </tr>
+                <tr>
+                    <th>MIDIのTAB譜化</th>
+                    <th>衛藤よしひろ</th>
+                </tr>
+            </table>
+        </div>
+        <script>
+            function downloadFromServer() {
+                const a = document.createElement('a');
+                a.href = "./jounetsu-tairiku-tab-note.png";
+                a.download = "Tab-Note-001.png"; // 保存時のファイル名
+  
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+}
+        </script>
+    </body>
+</html>
