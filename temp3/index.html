@@ -10,17 +10,59 @@
     <body id="pageBegin">
         <header id="header">
             <h1 id="titleName">おみくじ</h1>
-            <div class="menuLinks">
-                <a style="width:150px;" onclick="location.href='../temp3/index.html'">おみくじ - ホーム</a>
-            </div>
         </header>
-        <!-- MAIN CONTENTS -->
+        <div id="colorBand" style="min-height:0.5rem;background: #f0f0f0;"></div>
+        <!-- MAIN CONTENTS1 -->
         <div id="selectOmikuji" class="mainContents">
-            <h3>1つ選んでね</h3>
+            <div id="expBox01">
+                <h3 id="exp01" style="font-size:1.4rem; margin-top:3rem;margin-bottom:0rem;">1つ選んでね</h3>
+                </div>
+                <br>
+                <div id="expBox02">
+                    <p id="exp02" style="font-size: 0.9rem;"></p>
+                </div>
+                <p id="exp02"></p>
+            <div class="blockBox" style="max-width:20rem;">
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <!--button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button>
+                <button onclick="omikujiSelected()" class="omikuji">おみくじ</button-->
+            </div>
         </div>
-        <!--main contents-->
-        <footer>
-            <a class="reNameToggle" onclick="toggleReNameBox()">タイトルを変更</a>
+        <!--main contents1-->
+        <!--MAIN CONTENTS2-->
+        <div id="result" class="mainContents">
+
+        </div>
+        <!--main contents2-->
+        <footer id="footer">
+            <a class="toggle" onclick="toggleReNameBox()">タイトルを変更</a>
             <div style="background:#fff;padding:1em; border-style: solid; border-radius:1em; border-width:0.1em;" id="reName">
                 <p>以下に新タイトルを入力して更新ボタンを押してください</p>
                 <p>または好きなタイトルを押して更新ボタンを押してください</p>
@@ -31,9 +73,21 @@
                     <input class="titleCB" id="titleNameBox" type="text">
                     <button class="titleAB titleB" onclick="applyTitleName()">更新</button>
                 </div>
+                <a class="toggle" onclick="toggleReNameBox()">タイトルを変更 を非表示</a>
             </div>
-            <h6>Change logs</h6>
-            <p>v1.0.1 - 公開</p>
+            <br>
+            <a class="toggle" onclick="toggleChangeLogsBox()">Change Logs</a>
+            <div style="background:#fff;padding:1em; border-style: solid; border-radius:1em; border-width:0.1em;" id="changeLogs">
+                <h5>Change logs</h5>
+                <h6>(v1.0.1以前は省略)</h6>
+                <h6>v1.0.1</h6>
+                <p>試験公開</p>
+                <h6>v1.0.2</h6>
+                <p>恋みくじを選択した場合のヘッダ色帯を追加</p>
+                <p>Change Logsの非表示に対応</p>
+                <p>おみくじの原型を追加</p>
+                <a class="toggle" onclick="toggleChangeLogsBox()">Change Logsを非表示</a>
+            </div>
         </footer>
         <script src="./omikuji.js"></script>
     </body>

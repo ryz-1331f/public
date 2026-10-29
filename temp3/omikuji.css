@@ -69,15 +69,40 @@ a:active{
 .love:active {
     background:#ccb9cb
 }
-.reNameToggle {
+.toggle {
     background:transparent;
     border-style:none;
     color:#00f;
     text-decoration-line: underline;
 }
-.reNameToggle:hover {
+.toggle:hover {
     background:transparent;
 }
-.reNameToggle:active {
+.toggle:active {
     background:transparent;
+}
+.omikuji {
+    writing-mode: vertical-lr;
+    width:3rem;
+    min-width:3.3rem;
+    min-height:12rem;
+    font-size:1.3rem;
+    background:#f00;
+    color:#eed500;
+    border-color:#c00;
+    border-style:solid;
+    border-width:0.15rem;
+    cursor:pointer;
+    margin:0.2rem;
+}
+.omikuji:hover {
+    margin-top:-0.1rem;
+    margin-bottom:0.1rem;
+}
+header , .expBox01 , .expBox02  {
+    flex-direction: row;
+    display:flex;
+    align-items: center;
+    width:100%;
+    justify-content: center;
 }

@@ -88,10 +88,7 @@ label{
     cursor: pointer;
     margin-right:20px;
 }
-header h1{
-    margin-left:0.5em;
-    width:30em;
-}
+
 .scroll {
 width: 100%;
     max-width: 100%;
