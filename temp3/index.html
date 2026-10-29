@@ -12,6 +12,35 @@
             <h1 id="titleName">おみくじ</h1>
         </header>
         <div id="colorBand" style="min-height:0.5rem;background: #f0f0f0;"></div>
+        <!--NAME ENTRY-->
+        <div id="nameEntry" class="mainContents">
+            <h3>ニックネーム</h3>
+            <input id="nickNameEntry" style="width:20rem;height:3rem;border-width:1px;border-radius:1rem;" type="text">
+            <h3>性別</h3>
+            <select id="genderEntry" style="width:20rem;height:3rem;border-width:1px;border-radius:1rem;">
+                <option value="notChosen" disabled selected>--1つ選択してください--</option>
+                <option value="women">女性</option>
+                <option value="men">男性</option>
+                <option value="others">その他</option>
+            </select>
+            <h3>今の恋愛状況</h3>
+            <select id="loveStatusEntry" style="width:20rem;height:3rem;border-width:1px;border-radius:1rem;">
+                <option value="0" disabled selected>--1つ選択してください--</option>
+                <option value="1">恋人あり</option>
+                <option value="2">両思い</option>
+                <option value="3">片思い</option>
+                <option value="4">叶わぬ恋</option>
+                <option value="5">未練あり</option>
+                <option value="6">気にぴあり</option>
+                <option value="7">好きぴなし</option>
+                <option value="8">失恋中</option>
+                <option value="9">わからない</option>
+                <option value="A">内緒</option>
+            </select>
+            <div style="height:3rem;"></div>
+            <a onclick="getStartOmikuji()">おみくじを選ぶ</a>
+        </div>
+        <!--name entry-->
         <!-- MAIN CONTENTS1 -->
         <div id="selectOmikuji" class="mainContents">
             <div id="expBox01">
@@ -58,7 +87,9 @@
         <!--main contents1-->
         <!--MAIN CONTENTS2-->
         <div id="result" class="mainContents">
-
+            <div id="exp3">
+                <h1 id="resultTitle"></h1>
+            </div>
         </div>
         <!--main contents2-->
         <footer id="footer">
@@ -86,6 +117,8 @@
                 <p>恋みくじを選択した場合のヘッダ色帯を追加</p>
                 <p>Change Logsの非表示に対応</p>
                 <p>おみくじの原型を追加</p>
+                <h6>v1.1.0</h6>
+                <p>くじを引いた時の結果画面への移行が完成</p>
                 <a class="toggle" onclick="toggleChangeLogsBox()">Change Logsを非表示</a>
             </div>
             <p>制作・1331くじ制作係</p>

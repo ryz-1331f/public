@@ -5,17 +5,17 @@ footer {
 a {
     font-size: 0.8em;
     border-radius: 1em;
-    background:#fed;
+    background:#fff;
     border-color: #000;
     border-width:1px;
     border-style: solid;
 }
 a:hover{
     cursor:pointer;
-    background:#edc
+    background:#eee
 }
 a:active{
-    background:#ffe
+    background:#ddd
 }
 .titleSe {
     width: 10rem;
