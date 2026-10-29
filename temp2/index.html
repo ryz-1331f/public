@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>暗号化するやつ</title>
+        <link rel="stylesheet" href="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            h1{
+                font-size:1rem;
+            }
+            p{
+                font-size:0.7rem
+            }
+            a{
+                font-size:0.5em
+            }
+            body {
+                width: 100%;
+                font-family: Arial;
+                background: #ddd;
+                margin: 0px;
+            }
+            header {
+                display: flex;
+                align-items: center;
+                background: #f0f0f0;
+                width: 100%;
+                height: auto;
+                padding-left: 1em;
+                padding-right: 1em;
+                position: sticky;
+                top: 0;
+                box-sizing: border-box;
+            }
+            .menuLinks {
+                margin-left: 1rem;
+            }
+            .descriptions {
+                padding-top: 3rem;
+                padding-left: 3rem;
+                padding-bottom: 3rem;
+            }
+            .contents {
+                display: flex;
+                /*justify-content: center;*/
+                margin:1em;
+                display: flex;
+                margin: 1em;
+                min-width: 0;
+            }
+            a {
+                display: inline-block;
+                background: #ccf;
+                color: #000;
+                padding: 1em;
+                width: auto;
+                text-align: center;
+                text-decoration: none;
+                box-sizing: border-box;
+                margin:0em;
+                margin-bottom:10px;
+            }
+            a:hover{
+                cursor:pointer;
+                background:#bbe
+            }
+            a:active{
+                background:#ddf
+            }
+            p{
+                margin-left:10px;
+            }
+            .maincont{
+                width: 500px;
+                padding-top: 1em;
+                padding-left: 0.5em;
+                padding-bottom: 3em;
+                min-width: 0;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+            th,td{
+                width:50px;
+                height:10px;
+            }
+            .radiobtn{
+                height: 20px;
+                width: 20px;
+            }
+            label{
+                display:flex;
+                display: inline-flex;  /* 横並びのまま、中身をFlexboxにする */
+                align-items: center;   /* Y軸（縦方向）の中央揃え */
+                cursor: pointer;
+                margin-right:20px;
+            }
+            header h1{
+                margin-left:0.5em;
+                width:30em;
+            }
+            .scroll {
+            width: 100%;
+                max-width: 100%;
+                min-width: 0;
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                overscroll-behavior-x: contain;
+            }
+            .scroll table {
+                width: max-content;
+                min-width: 500px;
+                border-collapse: collapse;
+                white-space: nowrap;
+            }
+            .scroll th {
+                min-width: 70px;
+                box-sizing: border-box;
+            }
+            span {
+                background:#ffaaaa;
+                padding:0.1em;
+            }
+        </style>
+    </head>
+    <body id="pageBegin">
+        <header>
+            <h1>アンケートの内容を<br>暗号化するやつ</h1>
+            <div class="menuLinks">
+                <a onclick="reset()">最初のページに戻る<br>内容は保持されます</a>
+                <a onclick="location.reload()">最初のページに戻る<br>内容を消去します</a>
+            </div>
+        </header>
+        <div class="contents">
+            <div class="descriptions maincont" id="descriptions">
+                <h1>久しぶりですね</h1>
+                <p>龍三はまだ入力された情報をネットに送る仕組みを習得できていないので何を入力してもネットに送信されません。</p>
+                <p>完全に安全です。</p>
+                <p>さて、こちらはたくさん聞きたいことがあるんですがこれだけは聞きたいので質問させてください。</p>
+                <p>回答結果は読めない暗号化された文字列で返しますのでそれをメールに貼り付けて送信してください。</p>
+                <a onclick="startQuestion()">回答を始める</a>
+            </div>
+            <div class="maincont" id="question001">
+                <h1>Q1</h1>
+                <p>勤務形態について</p>
+                <div class="ansbox" id="ab1001">
+                    <label>
+                        <input class="radiobtn" type="radio" name="system" value="行先が曜日ごとに決まっている">
+                        <p>曜日ごとに決まった行先</p>
+                    </label>
+                    <label>
+                        <input class="radiobtn" type="radio" name="system" value="行先が変則に決まる">
+                        <p>変則的</p>
+                    </label>
+                    <br>
+                    <span class="displayStatus" id="status1001">未選択</span>
+                    <a onclick="enterab1001()">決定</a>
+                    
+                </div>
+                <div class="ansbox" id="ab1101">
+                    <table>
+                        <tr>
+                            <th>曜日</th>
+                            <th>日</th>
+                            <th>月</th>
+                            <th>火</th>
+                            <th>水</th>
+                            <th>木</th>
+                            <th>金</th>
+                            <th>土</th>
+                        </tr>
+                        <tr>
+                            <th>休み</th>
+                            <th>
+                                <input type="radio" name="sun" value="日曜日:休み" class="radiobtn">
+                            </th>
+                            <th>
+                                <input type="radio" name="mon" value="月曜日:休み" class="radiobtn">
+                            </th>
+                            <th>
+                                <input type="radio" name="tue" value="火曜日:休み" class="radiobtn">
+                            </th>
+                            <th>
+                                <input type="radio" name="wed" value="水曜日:休み" class="radiobtn">
+                            </th>
+                            <th>
+                                <input type="radio" name="thu" value="木曜日:休み" class="radiobtn">
+                            </th>
+                            <th>
+                                <input type="radio" name="fri" value="金曜日:休み" class="radiobtn">
+                            </th>
+                            <th>
+                                <input type="radio" name="sat" value="土曜日:休み" class="radiobtn">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>学校</th>
+                            <th>
+                                <input type="radio" name="sun" value="日曜日:学校" class="radiobtn">
+                            </th>
+                            <th>
+                                <input type="radio" name="mon" value="月曜日:学校" class="radiobtn">
+                            </th>
+                            <th>
+                                <input type="radio" name="tue" value="火曜日:学校" class="radiobtn">
+                            </th>
+                            <th>
+                                <input type="radio" name="wed" value="水曜日:学校" class="radiobtn">
+                            </th>
+                            <th>
+                                <input type="radio" name="thu" value="木曜日:学校" class="radiobtn">
+                            </th>
+                            <th>
+                                <input type="radio" name="fri" value="金曜日:学校" class="radiobtn">
+                            </th>
+                            <th>
+                                <input type="radio" name="sat" value="土曜日:学校" class="radiobtn">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>教セ</th>
+                            <th>
+                                <input type="radio" name="sun" value="日曜日:教セ" class="radiobtn">
+                            </th>
+                            <th>
+                                <input type="radio" name="mon" value="月曜日:教セ" class="radiobtn">
+                            </th>
+                            <th>
+                                <input type="radio" name="tue" value="火曜日:教セ" class="radiobtn">
+                            </th>
+                            <th>
+                                <input type="radio" name="wed" value="水曜日:教セ" class="radiobtn">
+                            </th>
+                            <th>
+                                <input type="radio" name="thu" value="木曜日:教セ" class="radiobtn">
+                            </th>
+                            <th>
+                                <input type="radio" name="fri" value="金曜日:教セ" class="radiobtn">
+                            </th>
+                            <th>
+                                <input type="radio" name="sat" value="土曜日:教セ" class="radiobtn">
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="ansbox" id="ab1102">
+                    <p>もし説明できるならば説明してください。</p>
+                    <p>できない場合飛ばして[次の質問へ進む]を押してください。</p>
+                    <textarea id="describedSystem" rows="4" cols="40" placeholder="説明できない場合は飛ばしてください"></textarea>
+                </div>
+                <a style="margin-top:10px;" onclick="reset()">前へ戻る</a>
+                <a style="margin-top:10px;" onclick="gotoq002()">次の質問へ進む</a>
+            </div>
+            <div class="maincont" id="question002">
+                <h1>いつ空いてますか</h1>
+                <div class="ansbox scroll" id="ab2001">
+                    <p>11月のいつか会いに行こうと思ってます</p>
+                    <div class="scroll">
+                        <table>
+                            <tr>
+                                <th>11月</th>
+                                <th style="font-size:0.3em">スマホの場合スクロールできます→</th>
+                            </tr>
+                            <tr>
+                                <th>Sun</th>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <select id="date1">
+                                        <option value="1:OK">01: OK</option>
+                                        <option value="1:NG" selected>01: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date2">
+                                        <option value="2:OK">02: OK</option>
+                                        <option value="2:NG" selected>02: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date3">
+                                       <option value="3:OK">03: OK</option>
+                                       <option value="3:NG" selected>03: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select  id="date4">
+                                        <option value="4:OK">04: OK</option>
+                                        <option value="4:NG" selected>04: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date5">
+                                        <option value="5:OK">05: OK</option>
+                                        <option value="5:NG" selected>05: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date6">
+                                        <option value="6:OK">06: OK</option>
+                                        <option value="6:NG" selected>06: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select  id="date7">
+                                        <option value="7:OK">07: OK</option>
+                                        <option value="7:NG" selected>07: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <select id="date8">
+                                        <option value="8:OK">08: OK</option>
+                                        <option value="8:NG" selected>08: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date9">
+                                        <option value="9:OK">09: OK</option>
+                                        <option value="9:NG" selected>09: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date10">
+                                        <option value="10:OK">10: OK</option>
+                                        <option value="10:NG" selected>10: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date11">
+                                        <option value="11:OK">11: OK</option>
+                                        <option value="11:NG" selected>11: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date12">
+                                        <option value="12:OK">12: OK</option>
+                                        <option value="12:NG" selected>12: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date13">
+                                        <option value="13:OK">13: OK</option>
+                                        <option value="13:NG" selected>13: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date14">
+                                        <option value="14:OK">14: OK</option>
+                                        <option value="14:NG" selected>14: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <select id="date15">
+                                        <option value="15:OK">15: OK</option>
+                                        <option value="15:NG" selected>15: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date16">
+                                        <option value="16:OK">16: OK</option>
+                                        <option value="16:NG" selected>16: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date17">
+                                        <option value="17:OK">17: OK</option>
+                                        <option value="17:NG" selected>17: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date18">
+                                        <option value="18:OK">18: OK</option>
+                                        <option value="18:NG" selected>18: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date19">
+                                        <option value="19:OK">19: OK</option>
+                                        <option value="19:NG" selected>19: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date20">
+                                        <option value="20:OK">20: OK</option>
+                                        <option value="20:NG" selected>20: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date21">
+                                        <option value="21:OK">21: OK</option>
+                                        <option value="21:NG" selected>21: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <select id="date22">
+                                        <option value="22:OK">22: OK</option>
+                                        <option value="22:NG" selected>22: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date23">
+                                        <option value="23:OK">23: OK</option>
+                                        <option value="23:NG" selected>23: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date24">
+                                        <option value="24:OK">24: OK</option>
+                                        <option value="24:NG" selected>24: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date25">
+                                        <option value="25:OK">25: OK</option>
+                                        <option value="25:NG" selected>25: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date26">
+                                        <option value="26:OK">26: OK</option>
+                                        <option value="26:NG" selected>26: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date27">
+                                        <option value="27:OK">27: OK</option>
+                                        <option value="27:NG" selected>27: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date28">
+                                        <option value="28:OK">28: OK</option>
+                                        <option value="28:NG" selected>28: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <select id="date29">
+                                        <option value="29:OK">29: OK</option>
+                                        <option value="29:NG" selected>29: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select id="date30">
+                                        <option value="30:OK">30: OK</option>
+                                        <option value="30:NG" selected>30: 不明/微妙/NG</option>
+                                    </select>
+                                </th>
+                            </tr>
+                        </table>
+                    </div>
+                <a style="margin-top:10px;" onclick="startQuestion()">前の質問へ戻る</a>
+                <a style="margin-top:10px;" onclick="gotoq003()">次の質問へ進む</a>
+                </div>
+            </div>
+            <div class="maincont" id="question003">
+                <h1>住所はどこですか</h1>
+                <div class="ansbox" id="ab3001">
+                    <p>郵便番号</p>
+                    <input type="text" id="adress01" value="812-0887">
+                    <br>
+                    <p>県市区町名</p>
+                    <input type="text" id="adress02" value="福岡県福岡市博多区三筑">
+                    <br>
+                    <p>丁目-番-号-号室</p>
+                    <input type="text" id="adress03" value="2-">
+                </div>
+                <a style="margin-top:10px;" onclick="reset()">前の質問へ戻る</a>
+                <a style="margin-top:10px;" onclick="done()">確認画面へ進む</a>
+            </div>
+            <div class="maincont" id="check">
+                <h1>入力内容を確認</h1>
+                <div class="dispbox">
+                    <p id="cKinmukeitai"></p> <!--勤務形態-->
+                    <p id="cSunday"></p> <!--Sunday-->
+                    <p id="cMonday"></p> <!--Monday-->
+                    <p id="cTuesday"></p> <!--Tuesday-->
+                    <p id="cWednesday"></p> <!--Wednesday-->
+                    <p id="cThursday"></p> <!--Wednesday-->
+                    <p id="cFriday"></p> <!--Friday-->
+                    <p id="cSaturday"></p> <!--Saturday-->
+                    <p id="cKinmukeitaiDescription"></p> <!--勤務形態-->
+                    <p id="cAllowedDate"></p> <!--都合の合う日付-->
+                    <p id="cAdress-number"></p> <!--郵便番号-->
+                    <p id="cAdress"></p> <!--住所-->
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        document.getElementById('descriptions').style.display = 'block';
+        document.getElementById('question001').style.display = 'none';
+        document.getElementById('question002').style.display = 'none';
+        document.getElementById('question003').style.display = 'none';
+        document.getElementById('check').style.display = 'none';
+        document.getElementById('ab1101').style.display = 'none';
+        document.getElementById('ab1102').style.display = 'none';
+        let kinmukeitai = document.querySelector('input[name="system"]:checked')?.value
+        let vKinmukeitai = ""
+        let vSunday = ""
+        let vMonday = ""
+        let vTuesday = ""
+        let vWednesday = ""
+        let vThursday = ""
+        let vFriday = ""
+        let vSaturday = ""
+        let vDescription = ""
+        let vAllowedDate = ""
+
+        function reset() {
+            document.getElementById('descriptions').style.display = 'block';
+            document.getElementById('question001').style.display = 'none';
+            document.getElementById('question002').style.display = 'none';
+            document.getElementById('question003').style.display = 'none';
+            document.getElementById('check').style.display = 'none';
+            document.getElementById('ab1101').style.display = 'none';
+            document.getElementById('ab1102').style.display = 'none';
+        }
+
+        function enterab1001() {
+            if (document.querySelector('input[name="system"]:checked')?.value === "行先が曜日ごとに決まっている") {
+                document.getElementById('ab1101').style.display = 'block';
+                document.getElementById('ab1102').style.display = 'none';
+                kinmukeitai = 1
+                document.getElementById('status1001').innerText = "曜日毎"
+                document.getElementById('status1001').style.background = "#aaffaa"
+            } else if (document.querySelector('input[name="system"]:checked')?.value === "行先が変則に決まる") {
+                document.getElementById('ab1101').style.display = 'none';
+                document.getElementById('ab1102').style.display = 'block';
+                kinmukeitai = 2
+                document.getElementById('status1001').innerText = "変則的"
+                document.getElementById('status1001').style.background = "#aaffaa"
+            }else{
+                document.getElementById('ab1101').style.display = 'none';
+                document.getElementById('ab1102').style.display = 'none';
+                kinmukeitai = 0
+            }
+        }
+
+        function startQuestion() {
+            document.getElementById('descriptions').style.display = 'none';
+            document.getElementById('question001').style.display = 'block';
+            document.getElementById('question002').style.display = 'none';
+            document.getElementById('question003').style.display = 'none';
+            document.getElementById('check').style.display = 'none';
+        }
+
+        function gotoq002() {
+            document.getElementById('descriptions').style.display = 'none';
+            document.getElementById('question001').style.display = 'none';
+            document.getElementById('question002').style.display = 'block';
+            document.getElementById('question003').style.display = 'none';
+            document.getElementById('check').style.display = 'none';
+        }
+
+        function gotoq003() {
+            document.getElementById('descriptions').style.display = 'none';
+            document.getElementById('question001').style.display = 'none';
+            document.getElementById('question002').style.display = 'none';
+            document.getElementById('question003').style.display = 'block';
+            document.getElementById('check').style.display = 'none';
+        }
+
+        function done() {
+            //確認・実行画面を表示
+            document.getElementById('descriptions').style.display = 'none';
+            document.getElementById('question001').style.display = 'none';
+            document.getElementById('question002').style.display = 'none';
+            document.getElementById('question003').style.display = 'none';
+            document.getElementById('check').style.display = 'block';
+            check()
+        }
+
+        function check() {
+            if (kinmukeitai == 1) {
+                vKinmukeitai = "曜日毎" 
+            } else if (kinmukeitai == 2) {
+                vKinmukeitai = "変則的"
+            } else if (kinmukeitai == 0) {
+                vKinmukeitai = "未選択"
+            }
+
+            if (kinmukeitai == 1) {
+                vSunday = document.querySelector('input[name="sun"]:checked')?.value
+                vMonday = document.querySelector('input[name="mon"]:checked')?.value
+                vTuesday = document.querySelector('input[name="tue"]:checked')?.value
+                vWednesday = document.querySelector('input[name="wed"]:checked')?.value
+                vThursday = document.querySelector('input[name="thu"]:checked')?.value
+                vFriday = document.querySelector('input[name="fri"]:checked')?.value
+                vSaturday = document.querySelector('input[name="sat"]:checked')?.value
+            }
+
+            if (kinmukeitai == 2) {
+                vDescription = document.getElementById('describedSystem').value
+            }
+
+            let allowedDates = [];
+
+            for (let i = 1; i <= 30; i++) {
+                if (document.getElementById("date" + i).value === i + ":OK") {
+                    allowedDates.push(i);
+                }
+            }
+
+            vAllowedDate = allowedDates.join(", ");
+
+            
+
+        }
+
+        function excute() {
+            //URLエンコードかけて表示、コピーボタンを表示
+        }
+    </script>
+</html>

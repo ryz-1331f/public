@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title id="pageTitle">おみくじ</title>
+        <link rel="stylesheet" href="../assets/css/default.css">
+        <link rel="stylesheet" href="./omikuji.css">
+    </head>
+    <body id="pageBegin">
+        <header id="header">
+            <h1 id="titleName">おみくじ</h1>
+            <div class="menuLinks">
+                <a style="width:150px;" onclick="location.href='../temp3/index.html'">おみくじ - ホーム</a>
+            </div>
+        </header>
+        <!-- MAIN CONTENTS -->
+        <div id="selectOmikuji" class="mainContents">
+            <h3>1つ選んでね</h3>
+        </div>
+        <!--main contents-->
+        <footer>
+            <a class="reNameToggle" onclick="toggleReNameBox()">タイトルを変更</a>
+            <div style="background:#fff;padding:1em; border-style: solid; border-radius:1em; border-width:0.1em;" id="reName">
+                <p>以下に新タイトルを入力して更新ボタンを押してください</p>
+                <p>または好きなタイトルを押して更新ボタンを押してください</p>
+                <button class="titleSe titleB" onclick="refreshTitleBox('おみくじ')">おみくじ</button>
+                <br>
+                <button class="titleSe titleB love" onclick="refreshTitleBox('恋みくじ')">恋みくじ</button> 
+                <div class="flexBox">
+                    <input class="titleCB" id="titleNameBox" type="text">
+                    <button class="titleAB titleB" onclick="applyTitleName()">更新</button>
+                </div>
+            </div>
+        </footer>
+        <script src="./omikuji.js"></script>
+    </body>
+</html>
