@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>シグマ計算</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="../assets/css/default.css">
+    </head>
+    <body id="beginPage">
+        <header id="header">
+            <h1>シグマを計算できるやつ</h1>
+        </header>
+        <div class="mainContents">
+            <h3>これらは値を求めるためのものです</h3>
+            <h3>以下に必要事項を入力して[計算]を押下してください</h3>
+            <input id="topNum" type="text" placeholder="k終端値">
+            <br>
+            <div style="display:flex;">
+                <h1>Σ</h1>
+                <input id="rigNum" type="text" placeholder="式">
+            </div>
+            <div style="display:flex;">
+                <input id="undNum" type="text" placeholder="k初期値" value="k=">
+            </div>
+            <br>
+            <a onclick="startKeisan()">計算</a>
+            <br>
+            <input type="text" id="resultDisplay" placeholder="結果はここに表示されます">
+        </div>
+        <script src="./sigma.js"></script>
+    </body>
+</html>
