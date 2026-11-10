@@ -18,6 +18,8 @@ document.getElementById('expBox01').style.display = "flex"
 document.getElementById('expBox02').style.display = "flex"
 document.getElementById('expBox01').style.justifyContent = "center"
 document.getElementById('expBox02').style.justifyContent = "center"
+document.getElementById('moreOmikuji1').style.display = "none"
+document.getElementById('moreOmikuji2').style.display = "none"
 let userNickName = ""
 
 function refreshTitleBox(enteredTitle) {
@@ -122,4 +124,11 @@ function omikujiSelected() {
     document.getElementById('nameEntry').style.display = "none"
     document.getElementById('selectOmikuji').style.display = "none"
     document.getElementById('result').style.display = "block"
+}
+
+function openMoreOmikuji1() {
+    document.getElementById('moreOmikuji1').style.display = "block"
+}
+function openMoreOmikuji2() {
+    document.getElementById('moreOmikuji2').style.display = "block"
 }

@@ -9,7 +9,7 @@ a{
 }
 body {
     width: 100%;
-    font-family: Arial;
+    font-family: monospace;
     background: #ddd;
     margin: 0px;
 }
@@ -122,4 +122,7 @@ span {
     background: #fff;
     padding: 1rem;
     padding-left: 2rem;
+}
+html {
+    overflow-x: hidden;
 }
