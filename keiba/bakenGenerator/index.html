@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>馬券ジェネレーター</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+        <link rel="stylesheet" href="../../assets/css/default.css">
+        <link rel="stylesheet" href="../../assets/css/hamburgerMenu.css">
+        <link rel="stylesheet" href="./bakenGen.css">
+        <style>
+            p,input {
+                font-size:16px;
+            }
+        </style>
+    </head>
+    <body id="pageBegin">
+        <header id="header">
+            <div>
+                <h1>馬券ジェネレーター</h1>
+                <h4>馬券を作成、保存できるツールです</h4>
+            </div>
+            <button class="openerBtn" id="menuToggleBtn" onclick="menuHideToggle()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </header>
+        <div class="menues" id="hamburgerMenues">
+            <div>
+                <h2>メニュー</h2>
+                <button class="aMenuLink">馬券ジェネレーター</button>
+                <br>
+                <button class="aMenuLink" onclick="goToLink()">競馬総合テスト対策</button>
+            </div>
+        </div>
+        <div class="mainContents">
+            <h1>馬券作成</h1>
+            <div class="generating">
+                <!--Entering-->
+                <div class="entering">
+                    <p>数字や文字を入力するとき、示された桁数または文字数で入力してください</p>
+                    <h3>開催情報</h3>
+                    <div style="display:flex;">
+                        <input style="width:4rem;" type="text" placeholder="4桁">
+                        <p>年</p>
+                        <p></p>
+                        <p></p>
+                        <input style="width:3.5rem;" type="text" placeholder="2桁以下">
+                        <p>回</p>
+                        <p></p>
+                        <p></p>
+                        <input style="width:3.5rem;" type="text" placeholder="2桁以下">
+                        <p>日</p>
+                    </div>
+                    <br>
+                    <div style="display:flex">
+                        <p>競馬場名</p>
+                        <p></p>
+                        <input style="width:10rem;" type="text" placeholder="">
+                    </div>
+                    <br>
+                    <div style="display:flex;">
+                        <p>レース数</p>
+                        <p></p>
+                        <input style="width:10rem;" type="text" placeholder="">
+                    </div>
+                    <h3>レース概要</h3>
+                    <div style="display:flex;">
+                        <p>レース回</p>
+                        <p></p>
+                        <p>第</p>
+                        <p></p>
+                        <input style="width:7rem;" type="text" placeholder="">
+                        <p>回</p>
+                    </div>
+                    <div style="display:flex;">
+                        <p>グレード</p>
+                        <p></p>
+                        <input style="width:12rem;" type="text" placeholder="GII等の数字はIの個数で表現">
+                    </div>
+                    <div style="display:flex;">
+                        <p>レース名</p>
+                        <p></p>
+                        <input style="width:10rem;" type="text" placeholder="">
+                    </div>
+                    <div style="display:flex;">
+                        <p>発券所名</p>
+                        <p></p>
+                        <input style="width:10rem;" type="text" placeholder="">
+                    </div>
+                    <h3>レース開催日</h3>
+                    <div style="display:flex;">
+                        <input style="width:3.5rem;" type="text" placeholder="2桁以下">
+                        <p>月</p>
+                        <p></p>
+                        <p></p>
+                        <input style="width:3.5rem;" type="text" placeholder="2桁以下">
+                        <p>日</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="./bakenGen.js"></script>
+    </body>
+</html>

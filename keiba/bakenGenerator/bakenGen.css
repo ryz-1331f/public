@@ -1,0 +1,10 @@
+h1 {
+    font-size:1.6rem;
+}
+header button {
+    right:0;
+}
+header > div:first-child,
+.header-title {
+    flex: 1; /* タイトルエリアを限界まで横に広げることで、ボタンを右端に押し出します */
+}
