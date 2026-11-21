@@ -23,7 +23,7 @@
 .bar {
     display: block;
     width: 60%;
-    height: 0.1rem; /* 線の太さ */
+    height: 1px; /* 線の太さ */
     background-color: #000;
     
     /* 💡 個別の余白をすべてゼロにして、gapの指定だけに頼るようにします */
@@ -70,4 +70,11 @@
     border-width:1px;
     margin-left:0.1rem;
     min-width:200px;
+}
+header button {
+    right:0;
+}
+header > :first-child,
+.header-title {
+    flex: 1; /* タイトルエリアを限界まで横に広げることで、ボタンを右端に押し出します */
 }

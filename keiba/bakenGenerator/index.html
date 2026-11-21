@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
+        <link rel="icon" href="../assets/img/gen-favicon.png">
         <title>馬券ジェネレーター</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <link rel="stylesheet" href="../../assets/css/default.css">
         <link rel="stylesheet" href="../../assets/css/hamburgerMenu.css">
         <link rel="stylesheet" href="./bakenGen.css">
@@ -30,7 +31,7 @@
                 <h2>メニュー</h2>
                 <button class="aMenuLink">馬券ジェネレーター</button>
                 <br>
-                <button class="aMenuLink" onclick="goToLink()">競馬総合テスト対策</button>
+                <button class="aMenuLink" onclick="goToLink('../keiso-taisaku/')">競馬総合テスト対策</button>
             </div>
         </div>
         <div class="mainContents">
@@ -97,11 +98,29 @@
                         <input style="width:3.5rem;" type="text" placeholder="2桁以下">
                         <p>日</p>
                     </div>
+                    <h3>種別</h3>
+                    <div style="display:block;">
+                        <a onclick="typeChosen('単勝')">単勝</a>
+                        <a onclick="typeChosen('複勝')">複勝</a>
+                        <a onclick="typeChosen('応援馬券')">応援馬券</a>
+                        <a onclick="typeChosen('枠連')">枠連</a>
+                        <a onclick="typeChosen('馬連')">馬連</a>
+                        <a onclick="typeChosen('馬単')">馬単</a>
+                        <a onclick="typeChosen('ワイド')">ワイド</a>
+                        <a onclick="typeChosen('3連複')">3連複</a>
+                        <a onclick="typeChosen('3連単')">3連単</a>
+                        <!--a onclick="typeChosen('WIN5')">WIN5</a-->
+                    </div>
+                    <div style="display:flex;">
+                        <input type="text" id="ticketType">
+                    </div>
                 </div>
             </div>
+            <p style="margin-bottom: 10rem;"></p>
         </div>
 
-
+        <script src="../../assets/js/hamburgerMenues.js"></script>
         <script src="./bakenGen.js"></script>
+        <script src="../assets/index.js"></script>
     </body>
 </html>

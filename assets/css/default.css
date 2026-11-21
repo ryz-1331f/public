@@ -4,9 +4,9 @@ h1{
 p{
     font-size:0.7rem
 }
-a{
+/*a{
     font-size:0.5em
-}
+}*/
 body {
     width: 100%;
     font-family: monospace;
@@ -125,4 +125,42 @@ span {
 }
 html {
     overflow-x: hidden;
+}
+a {
+    font-size: 0.8em;
+    border-radius: 1em;
+    background:#fff;
+    border-color: #000;
+    border-width:1px;
+    border-style: solid;
+}
+a:hover{
+    cursor:pointer;
+    background:#eee
+}
+a:active{
+    background:#ddd
+}
+button {
+    font-size: 0.8em;
+    border-radius: 1em;
+    background:#fff;
+    border-color: #000;
+    border-width:1px;
+    border-style: solid;
+}
+button:hover{
+    cursor:pointer;
+    background:#eee
+}
+button:active{
+    background:#ddd
+}
+input {
+    font-size: 0.8em;
+    border-radius: 0.3em;
+    background:#fff;
+    border-color: #000;
+    border-width:1px;
+    border-style: solid;
 }
