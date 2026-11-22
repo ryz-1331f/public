@@ -1,0 +1,26 @@
+.dialogContents {
+    background:#fff;
+}
+.dialogs {
+    background:#fff;
+    position:fixed;
+    display:flex;
+    width:250px;
+    border-style:solid;
+    border-width:1px;
+    border-radius:1rem;
+    padding:0.5rem;
+    padding-bottom:2rem;
+}
+.dialogParent {
+    display: flex;
+    justify-content: center;
+}
+.dialogTitle {
+    display:flex;
+}
+.closeBTN {
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+}

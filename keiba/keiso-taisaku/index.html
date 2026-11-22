@@ -7,6 +7,12 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
         <link rel="stylesheet" href="../../assets/css/default.css">
         <link rel="stylesheet" href="../../assets/css/hamburgerMenu.css">
+        <link rel="stylesheet" href="./index.css">
+        <style>
+            p,input {
+                font-size:16px;
+            }
+        </style>
     </head>
     <body>
         <header id="header">
@@ -25,10 +31,49 @@
                 <button class="aMenuLink">競馬総合テスト対策</button>
             </div>
         </div>
+        <div class="dialogParent">
+            <div class="dialogs" id="dialog001">
+                <div>
+                    <div class="dialogTitle">
+                        <h3>選択内容の確認</h3>
+                        <a class="closeBTN" onclick="dialogCLS()">CLOSE</a>
+                    </div>
+                    <div class="dialogContents">
+                        <div class="flexBox">
+                            <p>Grade : </p>
+                            <p id="chosenGrade"></p>
+                        </div>
+                        <div class="flexBox">
+                            <p>Questions : </p>
+                            <p id="chosenNOQ"></p>
+                        </div>
+                        <div class="flexBox">
+                            <p>Order : </p>
+                            <p id="chosenOOQ"></p>
+                        </div>
+                        <button class="selector" style="color:#fff; width:200px; background:linear-gradient(135deg,#f00,#ff0,#0f0,#0ff,#00f);" onclick="start()">START</button> 
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="mainContents">
-            <h1>競馬総合 臨時考査対策ページ</h1>
+            <h1 style="font-size:1.3rem;">競馬総合 臨時考査対策ページ</h1>
+            <h3>目的の級にあった対策問題を解くことができます</h3>
+            <p style="height:2px;"></p>
+            <p>級選択</p>
+            <button class="selector" style="width:200px;" id="gradeSW" onclick="selectGrade()">ここを押して級を指定</button>
+            <p style="height:-2px;"></p>
+            <p>問題数</p>
+            <button class="selector" style="width:200px;" id="NOQSW" onclick="selectNOQ()">ここを押して問題数を指定</button>
+            <p style="height:-2px;"></p>
+            <p>出題順</p>
+            <button class="selector" style="width:200px;" id="OOQSW" onclick="selectOOQ()">ここを押して出題順を指定</button>
+            <p style="height:-2px;"></p>
+            <button class="selector" style="width:200px; background:#acf;" onclick="start()">確認画面へ</button>
+            <p id="warningMessage"></p>
         </div>
         <script src="../../assets/js/hamburgerMenues.js"></script>
         <script src="../assets/index.js"></script>
+        <script src="./index.js"></script>
     </body>
 </html>

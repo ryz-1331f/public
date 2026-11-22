@@ -1,5 +1,5 @@
-h1{
-    font-size:1rem;
+h1 {
+    font-size:1.6rem;
 }
 p{
     font-size:0.7rem
@@ -90,7 +90,7 @@ label{
 }
 
 .scroll {
-width: 100%;
+    width: 100%;
     max-width: 100%;
     min-width: 0;
     overflow-x: auto;
@@ -148,6 +148,16 @@ button {
     border-color: #000;
     border-width:1px;
     border-style: solid;
+    color: #000;
+
+    margin:5px;
+    height:2.5rem;
+    color:#000;
+    font-size:1rem;;
+    border:#000;
+    border-style: solid;
+    border-width:1px;
+    margin-left:0.1rem;
 }
 button:hover{
     cursor:pointer;
@@ -163,4 +173,28 @@ input {
     border-color: #000;
     border-width:1px;
     border-style: solid;
+}
+html {
+    touch-action: manipulation;
+}
+.selector {
+    font-size: 0.8em;
+    border-radius: 1em;
+    background:#fff;
+    border-color: #000;
+    border-width:1px;
+    border-style: solid;
+    color: #000;
+
+    margin:5px;
+    height:2.5rem;
+    color:#000;
+    font-size:1rem;;
+    border:#000;
+    border-style: solid;
+    border-width:1px;
+    margin-left:0.1rem;
+}
+.selector:hover{
+    background:#fff;
 }
