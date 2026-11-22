@@ -11,6 +11,7 @@
     border-radius:1rem;
     padding:0.5rem;
     padding-bottom:2rem;
+    display:none;
 }
 .dialogParent {
     display: flex;

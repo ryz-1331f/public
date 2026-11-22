@@ -51,6 +51,10 @@
                             <p>Order : </p>
                             <p id="chosenOOQ"></p>
                         </div>
+                        <div class="flexBox">
+                            <p>Difficulty : </p>
+                            <p id="chosenDFC"></p>
+                        </div>
                         <button class="selector" style="color:#fff; width:200px; background:linear-gradient(135deg,#f00,#ff0,#0f0,#0ff,#00f);" onclick="start()">START</button> 
                     </div>
                 </div>
@@ -69,11 +73,18 @@
             <p>出題順</p>
             <button class="selector" style="width:200px;" id="OOQSW" onclick="selectOOQ()">ここを押して出題順を指定</button>
             <p style="height:-2px;"></p>
-            <button class="selector" style="width:200px; background:#acf;" onclick="start()">確認画面へ</button>
+            <p>難易度設定</p>
+            <div class="flexBox">
+                <button class="selector" style="width:96px;" id="DFCSW01" onclick="DFC01()">基礎</button>
+                <button class="selector" style="width:96px;" id="DFCSW02" onclick="DFC02()">応用</button>
+            </div>
+            <button class="selector" style="width:200px;" id="DFCSWAll" onclick="DFCAll()">総括制御</button>
+            <p style="height:-2px;"></p>
+            <button class="selector" style="width:200px; background:#acf;" onclick="check()">確認画面へ</button>
             <p id="warningMessage"></p>
         </div>
         <script src="../../assets/js/hamburgerMenues.js"></script>
-        <script src="../assets/index.js"></script>
+        <script src="../assets/bf.js"></script>
         <script src="./index.js"></script>
     </body>
 </html>
