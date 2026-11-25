@@ -17,11 +17,16 @@ function give() {
     remove()
     localStorage.setItem("userID",userID)
     alert('権限が付与されました')
+    const params = new URLSearchParams(location.search);
+    if (params.has("from")) {
+        location.href = params.get("from")
+    }
 }
 
 function remove() {
     localStorage.removeItem("userID")
 }
+
 function check() {
     let isGiven = localStorage.getItem("userID") !== null
     if (isGiven === true) {
