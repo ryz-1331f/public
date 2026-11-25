@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+        <link rel="icon" href="../assets/img/keiso-favicon.png">
+        <link rel="stylesheet" href="../../assets/css/default.css">
+        <link rel="stylesheet" href="../../assets/css/hamburgerMenu.css">
+        <script src="../../assets/js/hamburgerMenues.js"></script>
+        <script src="../assets/bf.js"></script>
+        <style>
+            div button {
+                min-width:100px;
+            }
+        </style>
+    </head>
+    <body id="pageBegin">
+        <header id="header">
+            <h1>権限制御</h1>
+            <button class="openerBtn" id="menuToggleBtn" onclick="menuHideToggle()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </header>
+        <div class="menues" id="hamburgerMenues">
+            <div>
+                <h2>メニュー</h2>
+                <button class="aMenuLink" onclick="goToLink('../keiso-taisaku/')">競馬総合テスト対策</button>
+                <br>
+                <button class="aMenuLink" onclick="goToLink('../bakenGenerator/')">馬券ジェネレーター</button>                
+            </div>
+        </div>
+        <div class="mainContents">
+            <h3 style="color:#f00;">本サイトの競馬関係ページでは、機能向上のために方式主義を採用しています。そのため、各自権限付与の作業を行なってもらう必要があります。</h3>
+            <h3>また、11/27日以降権限の付与なしに競馬関係ページの閲覧ができなくなります。予めご了承ください。</h3>
+            <h3>権限は、ブラウザのキャッシュまたは履歴を削除すると解除されます。その際は再度権限の付与が必要となります。詳しくはサイト管理者にお問い合わせください。</h3>
+            <h3>権限が付与されているか確認する</h3>
+            <button onclick="check()">権限を確認</button>
+            <h3>権限を付与する</h3>
+            <p>総括コードを入力</p>
+            <input type="text" id="cC">
+            <p>ユーザIDを入力</p>
+            <input type="number" id="userId">
+            <br>
+            <p>パスワードを入力</p>
+            <input type="number" id="userPw">
+            <br>
+            <button onclick="assign()">権限を付与</button>
+            <h3>権限を解除する</h3>
+            <button onclick="remove()">権限を解除</button>
+        </div>
+        <script src="./users.js"></script>
+        <script src="./assign.js"></script>
+    </body>
+</html>
