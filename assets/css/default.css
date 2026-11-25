@@ -198,3 +198,6 @@ html {
 .selector:hover{
     background:#fff;
 }
+p,input {
+    font-size:16px;
+}

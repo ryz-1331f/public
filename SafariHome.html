@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>新しいタブ</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./assets/css/default.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+        <style>
+            img {
+                width: 5rem;
+                height: 5rem;
+                border: solid 1px #fff;
+                padding: 0.5rem;
+                border-radius: 1rem;
+                background: #fff;
+            }
+            .imgLink {
+                border: solid 1px #fff;
+                height: 9rem;
+                width: 20rem;
+                margin: 0.3rem;
+                background: #eee;
+                border-radius: 1rem;
+                padding: 1rem;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+            }
+            .imgLink:hover, .imgLink:active {
+                border-color: #aaa;
+            }
+            /* 選択されたときのスタイルをCSSクラスで定義 */
+            .imgLink.selected {
+                background: #ff0;
+                border-color: #cc0;
+            }
+            .imgLink p {
+                font-size: 1rem;
+                margin-left: 1rem;
+            }
+        </style>
+    </head>
+    <body id="pageBegin">
+        <div class="mainContents" style="flex-wrap: wrap; display:flex;">
+            <button style="width:100%;background:#f00;color:#fff;" onclick="goToTheLink()" id="go1">GO</button>
+            
+            <div onclick="selectItem(this, 'https://drive.google.com/u/0/')" class="imgLink">
+                <img src="./assets/img/drive.jpeg">
+                <p>Google<br>ドライブ</p>
+            </div>
+            <div onclick="selectItem(this, 'https://docs.google.com/document/u/0/')" class="imgLink">
+                <img src="./assets/img/document.jpeg">
+                <p>Google<br>ドキュメント</p>
+            </div>
+            <div onclick="selectItem(this, 'https://docs.google.com/spreadsheets/u/0/')" class="imgLink">
+                <img src="./assets/img/spreadsheets.jpeg">
+                <p>Google<br>スプレッドシート</p>
+            </div>
+            <div onclick="selectItem(this, 'https://docs.google.com/presentation/u/0/')" class="imgLink">
+                <img src="./assets/img/presentation.jpeg">
+                <p>Google<br>プレゼンテーション</p>
+            </div>
+            <div onclick="selectItem(this, 'https://docs.google.com/forms/u/0/')" class="imgLink">
+                <img src="./assets/img/forms.jpeg">
+                <p>Google<br>フォーム</p>
+            </div>
+            <div onclick="selectItem(this, 'https://gemini.google.com/')" class="imgLink">
+                <img src="./assets/img/gemini.jpeg">
+                <p>Google<br>Gemini</p>
+            </div>
+
+            <button style="width:100%;background:#f00;color:#fff;" onclick="goToTheLink()" id="go2">GO</button>
+        </div>
+
+        <script>
+            let selectedUrl = "";
+
+            function selectItem(element, url) {
+                // すでに選択されているものを再クリックした場合は解除
+                if (element.classList.contains('selected')) {
+                    element.classList.remove('selected');
+                    selectedUrl = "";
+                    return;
+                }
+
+                // すべてのカードの選択状態をリセット
+                const items = document.querySelectorAll('.imgLink');
+                items.forEach(item => item.classList.remove('selected'));
+
+                // クリックされたカードだけを選択状態にする
+                element.classList.add('selected');
+                selectedUrl = url;
+            }
+
+            function goToTheLink() {
+                if (selectedUrl !== "") {
+                    location.href = selectedUrl;
+                } else {
+                    document.getElementById('go1').innerText = "選択してください"
+                    document.getElementById('go2').innerText = "選択してください"
+                }
+            }
+        </script>
+    </body>
+</html>
