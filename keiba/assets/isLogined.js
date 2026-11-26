@@ -5,7 +5,7 @@ const nowLink = location.href
 
 
 let isGiven = localStorage.getItem("userID") !== null
-←コメントアウト11/27まで外さない
+//←コメントアウト11/27まで外さない
 if (isGiven === false) {                                                          
     alert("権限が付与されていないため、権限付与ページに遷移します")
     location.href = (`${baseLink}?from=${nowLink}`)
