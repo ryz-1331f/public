@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>マイページ</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-Width,initial-scale=1.0,user-scalable=no">
+        <link rel="stylesheet" href="../../assets/css/default.css">
+        <link rel="stylesheet" href="../../assets/css/hamburgerMenu.css">
+        <script src="../accounts/users.js"></script>
+        <script src="../assets/isLogined.js"></script>
+    </head>
+    <body id="pageBegin">
+        <header id="header">
+            <h1>マイページ</h1>
+            <div class="openerBtn" onclick="menuHideToggle()">
+                <button class="openerBtn openBtnBorder" id="menuToggleBtn">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </header>
+        <div class="menues" id="hamburgerMenues">
+            <div>
+                <div class="accountDisplayMini">
+                    <img src="users[${accDisFavicon}][id].png">
+                </div>
+                <h2>メニュー</h2>
+                <button class="aMenuLink">競馬総合テスト対策</button>
+                <br>
+                <button class="aMenuLink" onclick="goToLink('./bakenGenerator/')">馬券ジェネレーター</button>
+                <br>
+                <button class="aMenuLink" onclick="goToLink('https://ryz-1331f.github.io/public/keiba/accounts/assignment.html')">権限制御</button>
+            </div>
+        </div>
+        <div class="mainContents">
+            <div class="accountDisplay" id="accountDisplay">
+                <div id="accountIcon"></div>
+                <h2 id="accountName"></h2>
+            </div>
+        </div>
+        <script src=""></script>
+        <script src="../../assets/js/hamburgerMenues.js"></script>
+    </body>
+</html>

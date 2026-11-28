@@ -1,12 +1,11 @@
 /* --- ハンバーガーボタン --- */
 .openerBtn {
     margin: 5px;
-    background: #fff;
+    background: #eee;
     height: 2.5rem;
     width: 2.5rem;
     color: #000;
     font-size: 1rem;
-    border: 1px solid #000;
     cursor: pointer;
     box-sizing: border-box;
 
@@ -18,6 +17,11 @@
 
     /* 💡 線と線の間の隙間を「4px」にダイレクトに固定します */
     gap: 4px; 
+}
+
+.openBtnBorder {
+    border: 1px solid #000;
+    background: #eee;
 }
 
 .bar {
@@ -77,4 +81,21 @@ header button {
 header > :first-child,
 .header-title {
     flex: 1; /* タイトルエリアを限界まで横に広げることで、ボタンを右端に押し出します */
+}
+.accDisFav {
+    height: 40px;
+    width: 40px;
+    margin-right: 20px;
+    border-radius: 20px;
+}
+.accountDisplayH {
+    display: flex;
+    height:50px;
+    width:auto;
+    align-items: center;
+    /*justify-content: center;*/
+    background:#fff;
+    padding: 5px;
+    padding-left:10px;
+    border-radius: 20px;
 }

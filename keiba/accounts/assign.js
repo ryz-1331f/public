@@ -31,7 +31,7 @@ function check() {
     let isGiven = localStorage.getItem("userID") !== null
     if (isGiven === true) {
         let detectedUserId = localStorage.getItem('userID')
-        alert('既に登録済みです : [' + users[detectedUserId]?.["ja_name"] + "] さん")
+        alert('既に登録済みです : [' + users[detectedUserId]?.["ja_name_top"] + "] さん")
     } else if (isGiven === false) {
         alert('未登録です')
     } else {
