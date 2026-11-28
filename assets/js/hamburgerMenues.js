@@ -13,11 +13,11 @@ const headerItems = `
         <h3>${accountName}</h3>
     </div>
     <h2>メニュー</h2>
-    <button class="aMenuLink" onclick="goToLink('https://ryz-1331f.github.io/public/keiba/keiso-taisaku/')">競馬総合テスト対策</button>
+    <button class="aMenuLink" onclick="goToLink('/public/keiba/keiso-taisaku/')">競馬総合テスト対策</button>
     <br>
-    <button class="aMenuLink" onclick="goToLink('https://ryz-1331f.github.io/public/keiba/bakenGenerator/')">馬券ジェネレーター</button>
+    <button class="aMenuLink" onclick="goToLink('/public/keiba/bakenGenerator/')">馬券ジェネレーター</button>
     <br>
-    <button class="aMenuLink" onclick="goToLink('https://ryz-1331f.github.io/public/keiba/accounts/assignment.html')">権限制御</button>
+    <button class="aMenuLink" onclick="goToLink('/public/keiba/accounts/assignment.html')">権限制御</button>
 </div>
 `
 
